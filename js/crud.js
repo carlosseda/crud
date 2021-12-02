@@ -20,15 +20,11 @@ export let renderForm = () => {
                     let response = await fetch(url, {
                         method: 'POST', 
                         mode: 'cors', 
-                        cache: 'no-cache', 
-                        credentials: 'same-origin', 
                         headers: {
                             'Authorization': 'Basic tony_admin@laravel.com:$2y$10$D3vG45dtYiR3O/d46x4pveWLqBZoxQWuq7..fbvOxNvZnW7eMWoOm', 
                             'Content-Type': 'application/json',
                             "Access-Control-Allow-Origin": "*"
                         },
-                        redirect: 'follow', 
-                        referrerPolicy: 'no-referrer', 
                         body: JSON.stringify(data)
                     }).then(function(response){
                         console.log(response);
