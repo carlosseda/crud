@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="https://www.youtube.com/s/desktop/12d6b690/img/favicon.ico">
+
+		<title>Título</title>
+		<meta name="description" content="descripción de la web, se recomienda 90 caracteres">
+        <meta name="keywords" 	 content="palabras clave, separadas, por comas">
+
+		<!-- 
+        <meta property="fb:app_id"        content="" /> 
+		<meta property="og:url"           content="" />
+		<meta property="og:type"          content="website" />
+		<meta property="og:title"         content=""/>
+		<meta property="og:description"   content="" /> 
+        -->
+
+        <link href="css/app.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <header>
+            <div class="header-element logo">
+                <svg viewbox="0 0 24 24">
+                    <path d="M18.36,2.64C20,2.64 21.36,4 21.36,5.64C21.36,7.29 20,8.64 18.36,8.64C16.71,8.64 15.36,7.29 15.36,5.64C15.36,5.34 15.41,5.06 15.5,4.8C14.43,4.29 13.25,4 12,4A8,8 0 0,0 4,12L4.04,12.84L2.05,13.05L2,12A10,10 0 0,1 12,2C13.69,2 15.28,2.42 16.67,3.16C17.16,2.83 17.74,2.64 18.36,2.64M18.36,4.64A1,1 0 0,0 17.36,5.64A1,1 0 0,0 18.36,6.64C18.92,6.64 19.36,6.19 19.36,5.64C19.36,5.08 18.92,4.64 18.36,4.64M5.64,15.36C7.29,15.36 8.64,16.71 8.64,18.36C8.64,18.66 8.59,18.94 8.5,19.2C9.57,19.71 10.75,20 12,20A8,8 0 0,0 20,12L19.96,11.16L21.95,10.95L22,12A10,10 0 0,1 12,22C10.31,22 8.72,21.58 7.33,20.84C6.84,21.17 6.26,21.36 5.64,21.36C4,21.36 2.64,20 2.64,18.36C2.64,16.71 4,15.36 5.64,15.36M5.64,17.36C5.08,17.36 4.64,17.81 4.64,18.36C4.64,18.92 5.08,19.36 5.64,19.36A1,1 0 0,0 6.64,18.36A1,1 0 0,0 5.64,17.36M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z" />
+                </svg>
+            </div>
+
+            <div class="header-element title">
+                <h1>Título</h1>
+            </div>
+        </header>
+
+        <main>
+            <div class="main-element subtitle">
+                <h2>Subtítulo</h2>
+            </div>
+
+            <div class="main-element crud">
+                <div class="crud__table">
+                    <table>
+                        <tr>
+                          <th>Id</th>
+                          <th>Título</th>
+                          <th>Precio</th>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>Maria Anders</td>
+                          <td>25</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Francisco Chang</td>
+                          <td>30</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="crud__form">
+
+                    <form class="admin-form" id="book-form" action="http://192.168.5.65/api/books" autocomplete="off">
+                                
+                        <input autocomplete="false" name="hidden" type="text" style="display:none;">
+                        <input type="hidden" name="id" value="">
+        
+                        <div class="tabs-container">
+                            <div class="tabs-container-menu">
+                                <ul>
+                                    <li class="tab-item tab-active" data-tab="content">
+                                        Contenido
+                                    </li>      
+                                    <li class="tab-item" data-tab="shop">
+                                        Tienda
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="tabs-container-buttons">
+                                <div class="crud__create-button" id="crud__create-button"> 
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M0 0h24v24H0z" fill="none"/>
+                                        <path class="crud__create-button-icon" d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-panel tab-active" data-tab="content">
+                            <div class="crud__form-one-column">
+                                <div class="crud__form-element">
+                                    <div class="crud__form-label">
+                                        <label for="title" class="label-highlight">Título</label>
+                                    </div>
+                                    <div class="crud__form-input">
+                                        <input type="text" name="title" value="" class="input-highlight"  />
+                                    </div>
+                                </div>
+
+                                <div class="crud__form-element">
+                                    <div class="crud__form-label">
+                                        <label for="author" class="label-highlight">Autor</label>
+                                    </div>
+                                    <div class="crud__form-input">
+                                        <input type="text" name="author" value="" class="input-highlight"  />
+                                    </div>
+                                </div>
+
+                                <div class="crud__form-element">
+                                    <div class="crud__form-label">
+                                        <label for="editor" class="label-highlight">Editor</label>
+                                    </div>
+                                    <div class="crud__form-input">
+                                        <input type="text" name="editor" value=""  class="input-highlight"  />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-panel" data-tab="shop">
+                            <div class="crud__form-one-column">
+                                <div class="crud__form-element">
+                                    <div class="crud__form-label">
+                                        <label for="price" class="label-highlight">Precio</label>
+                                    </div>
+                                    <div class="crud__form-input">
+                                        <input type="number" name="price" value="" class="input-highlight"  />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div> 
+        </main>
+
+        <footer></footer>
+            
+        <script type="module" src="js/main.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+        <script>
+            WebFont.load({
+                google: {
+                    families: ['Ubuntu:700,700i', 'Ubuntu+Condensed:400']
+                }
+            });        
+        </script>
+
+        <!-- 
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            
+            ga('create', '', 'auto');
+            ga('send', 'pageview');
+        </script> 
+        -->
+    </body>
+</html>

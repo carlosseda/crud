@@ -1,0 +1,20 @@
+.header__element.logo{
+    width: max-content;
+}
+
+.header__element.logo svg{
+    height: 3em;
+    width: 3em;
+}
+
+.header__element.logo svg path{
+    fill:hsl(19, 100%, 50%);
+}
+
+.header__element.title{
+    margin-left: 1em;
+}
+
+.header__element.title h1{
+    text-align: left;
+}
