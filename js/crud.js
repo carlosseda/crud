@@ -1,5 +1,6 @@
 export let renderForm = () => {
 
+    let server = "http://192.168.0.195/api/";
     let forms = document.querySelectorAll(".admin-form");
     let createButton = document.getElementById("crud__create-button");
 
@@ -12,7 +13,7 @@ export let renderForm = () => {
             forms.forEach(form => { 
                 
                 let data = new FormData(form);
-                let url = form.action;
+                let url = server + form.action;
     
                 let sendPostRequest = async () => {
             
