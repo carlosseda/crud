@@ -17,14 +17,15 @@ export let renderForm = () => {
     
                 let sendPostRequest = async () => {
             
-                    const response = await fetch(url, {
+                    let response = await fetch(url, {
                         method: 'POST', 
                         mode: 'cors', 
                         cache: 'no-cache', 
                         credentials: 'same-origin', 
                         headers: {
                             'Authorization': 'Basic tony_admin@laravel.com:$2y$10$D3vG45dtYiR3O/d46x4pveWLqBZoxQWuq7..fbvOxNvZnW7eMWoOm', 
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            "Access-Control-Allow-Origin": "*"
                         },
                         redirect: 'follow', 
                         referrerPolicy: 'no-referrer', 
@@ -50,10 +51,10 @@ export let renderForm = () => {
                         }
                     });
 
-                    // await axios.post(url, data).then(response => {
+                    await axios.post(url, data).then(response => {
                         
-                    //     console.log(response);
-                    // });
+                        console.log(response);
+                    });
                 };
         
                 sendPostRequest();
