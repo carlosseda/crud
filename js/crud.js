@@ -16,37 +16,37 @@ export let renderForm = () => {
     
                 let sendPostRequest = async () => {
             
-                    let response = await fetch(url, {
-                        method: 'POST', 
-                        mode: 'cors', 
-                        headers: {
-                            'Authorization': 'Basic tony_admin@laravel.com:$2y$10$D3vG45dtYiR3O/d46x4pveWLqBZoxQWuq7..fbvOxNvZnW7eMWoOm', 
-                            'Content-Type': 'application/json',
-                            "Access-Control-Allow-Origin": "*"
-                        },
-                        body: JSON.stringify(data)
-                    }).then(function(response){
-                        console.log(response);
-                    }).catch(function(error) {
+                    // let response = await fetch(url, {
+                    //     method: 'POST', 
+                    //     mode: 'cors', 
+                    //     headers: {
+                    //         'Authorization': 'Basic tony_admin@laravel.com:$2y$10$D3vG45dtYiR3O/d46x4pveWLqBZoxQWuq7..fbvOxNvZnW7eMWoOm', 
+                    //         'Content-Type': 'application/json',
+                    //         "Access-Control-Allow-Origin": "*"
+                    //     },
+                    //     body: JSON.stringify(data)
+                    // }).then(function(response){
+                    //     console.log(response);
+                    // }).catch(function(error) {
 
-                        if(error.response.status == '422'){
+                    //     if(error.response.status == '422'){
     
-                            let errors = error.response.data.errors;      
-                            let errorMessage = '';
+                    //         let errors = error.response.data.errors;      
+                    //         let errorMessage = '';
         
-                            Object.keys(errors).forEach(function(key) {
-                                errorMessage += '<li>' + errors[key] + '</li>';
-                            })
+                    //         Object.keys(errors).forEach(function(key) {
+                    //             errorMessage += '<li>' + errors[key] + '</li>';
+                    //         })
             
-                            console.log(errorMessage);
-                        }
+                    //         console.log(errorMessage);
+                    //     }
     
-                        if(error.response.status == '500'){
-                            console.log(error);
-                        }
-                    });
+                    //     if(error.response.status == '500'){
+                    //         console.log(error);
+                    //     }
+                    // });
 
-                    await axios.post(url, data).then(response => {
+                    let response = await axios.post(url, data).then(response => {
                         
                         console.log(response);
                     });
