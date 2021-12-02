@@ -49,12 +49,12 @@ export let renderForm = () => {
 
                     let response = await axios.post(url, data, {
                         headers: {
-                            'Authorization': 'Basic tony_admin@laravel.com:$2y$10$D3vG45dtYiR3O/d46x4pveWLqBZoxQWuq7..fbvOxNvZnW7eMWoOm',
+                            'Authorization': 'Basic tony_admin:$2y$10$D3vG45dtYiR3O/d46x4pveWLqBZoxQWuq7..fbvOxNvZnW7eMWoOm',
                             'Content-Type': 'application/json',
                             "Access-Control-Allow-Origin": "*"
                         }
                     }).then(response => {
-                        
+
                         console.log(response);
 
                     }).catch(error => {
