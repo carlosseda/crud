@@ -1,4 +1,4 @@
-import ClientJS from '/node_modules/clientjs/src/client.js'
+import ClientJS from '../node_modules/clientjs/src/client.js'
 
 const client = new ClientJS();
 
