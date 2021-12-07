@@ -12,27 +12,30 @@ export let renderForm = () => {
             event.preventDefault();
     
             forms.forEach(form => { 
-                var data = JSON.stringify({
+                
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+                myHeaders.append("Access-Control-Allow-Origin", "*");
+
+                var raw = JSON.stringify({
                     "name": "carlos",
                     "email": "carlossedagambin@gmail.com",
                     "password": "temporal",
                     "c_password": "temporal"
-                  });
-                  
-                  var xhr = new XMLHttpRequest();
-                  xhr.withCredentials = true;
-                  
-                  xhr.addEventListener("readystatechange", function() {
-                    if(this.readyState === 4) {
-                      console.log(this.responseText);
-                    }
-                  });
-                  
-                  xhr.open("POST", "http://141.94.27.118:8080/api/register");
-                  xhr.setRequestHeader("Content-Type", "application/json");
-                  xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-                  
-                  xhr.send(data);
+                });
+
+                var requestOptions = {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: raw,
+                    redirect: 'follow'
+                };
+
+                fetch("http://141.94.27.118:8080/api/register", requestOptions)
+                .then(response => response.text())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+
                 // let data = new FormData(form);
                 // data.append("name", "carlos");
                 // data.append("email", "cedagambin@gmail.com");
