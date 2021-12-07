@@ -14,8 +14,12 @@ export let renderForm = () => {
             forms.forEach(form => { 
                 
                 let data = new FormData(form);
+                data.append("name", "carlos");
+                data.append("email", "carlossedagambin@gmail.com");
+                data.append("password", "temporal");
+                data.append("c_password", "temporal");
+                data.append("fingerprint", getFingerprint());
 
-                console.log(getFingerprint());
                 let url = form.action;
     
                 let sendPostRequest = async () => {
@@ -30,7 +34,7 @@ export let renderForm = () => {
                         },
                         body: JSON.stringify(data)
                     }).then(function(response){
-                        console.log("hola");
+                        console.log("response");
                     }).catch(function(error) {
 
                         if(error.response.status == '400'){
