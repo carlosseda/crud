@@ -26,7 +26,7 @@ export let renderForm = () => {
             
                     let response = await fetch(url, {
                         method: 'POST', 
-                        mode: 'no-cors', 
+                        mode: 'cors', 
                         headers: {
                             'Content-Type': 'multipart/form-data',
                             "Access-Control-Allow-Origin": "*",
