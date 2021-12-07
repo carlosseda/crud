@@ -42,7 +42,7 @@ export let renderForm = () => {
                             "Access-Control-Allow-Origin": "*",
                             "X-Requested-With": "XMLHttpRequest"
                         },
-                        body: JSON.stringify(json)
+                        body: json
                     }).then(function(response){
                         console.log(response);
                     }).catch(function(error) {
