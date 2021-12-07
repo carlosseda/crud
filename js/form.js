@@ -28,12 +28,13 @@ export let renderForm = () => {
                         method: 'POST', 
                         mode: 'cors', 
                         headers: {
-                            'Content-Type': 'multipart/form-data',
-                            "Access-Control-Allow-Origin": "*"
+                            'Content-Type': 'application/json',
+                            "Access-Control-Allow-Origin": "*",
+                            "X-Requested-With": "XMLHttpRequest"
                         },
-                        body: data
+                        body: JSON.stringify(data)
                     }).then(function(response){
-                        console.log(response.json());
+                        console.log(response);
                     }).catch(function(error) {
 
                         if(error.response.status == '400'){
