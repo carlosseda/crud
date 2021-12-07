@@ -38,8 +38,8 @@ export let renderForm = () => {
                         method: 'POST', 
                         mode: 'cors', 
                         headers: {
-                            'Accept': 'application/json',
-                            "Access-Control-Allow-Origin": "*",
+                            'Accept': '*/*',
+                            'Content-Type': 'application/json',
                         },
                         body: json
                     }).then(function(response){
