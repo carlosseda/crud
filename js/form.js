@@ -28,6 +28,8 @@ export let renderForm = () => {
 
                 let json = JSON.stringify(object);
 
+                console.log(json);
+
                 let url = form.action;
     
                 let sendPostRequest = async () => {
