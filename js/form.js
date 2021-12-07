@@ -26,12 +26,13 @@ export let renderForm = () => {
             
                     let response = await fetch(url, {
                         method: 'POST', 
-                        mode: 'cors', 
+                        mode: 'no-cors', 
                         headers: {
-                            'Content-Type': 'application/json',
-                            "Access-Control-Allow-Origin": "*"
+                            'Content-Type': 'multipart/form-data',
+                            "Access-Control-Allow-Origin": "*",
+                            "X-Requested-With": "XMLHttpRequest"
                         },
-                        body: JSON.stringify(data)
+                        body: data
                     }).then(function(response){
                         console.log(response);
                     }).catch(function(error) {
