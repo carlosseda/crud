@@ -39,6 +39,7 @@ export let renderForm = () => {
                         mode: 'cors', 
                         headers: {
                             'Accept': 'application/json',
+                            "Access-Control-Allow-Origin": "*",
                         },
                         body: json
                     }).then(function(response){
