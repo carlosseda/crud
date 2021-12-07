@@ -29,8 +29,7 @@ export let renderForm = () => {
                         mode: 'cors', 
                         headers: {
                             'Content-Type': 'multipart/form-data',
-                            "Access-Control-Allow-Origin": "*",
-                            "X-Requested-With": "XMLHttpRequest"
+                            "Access-Control-Allow-Origin": "*"
                         },
                         body: data
                     }).then(function(response){
