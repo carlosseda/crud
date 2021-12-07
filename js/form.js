@@ -24,7 +24,7 @@ export let renderForm = () => {
                         method: 'POST', 
                         mode: 'cors', 
                         headers: {
-                            'Content-Type': 'application/json',
+                            'Content-Type': 'multipart/form-data',
                             "Access-Control-Allow-Origin": "*",
                             "X-Requested-With": "XMLHttpRequest"
                         },
