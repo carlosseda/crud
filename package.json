@@ -1,7 +1,8 @@
 {
   "dependencies": {
-    "axios": "^0.24.0"
+    "axios": "^0.24.0",
+    "ckeditor5": "^31.1.0",
+    "clientjs": "^0.2.1"
   },
-
   "type": "module"
 }

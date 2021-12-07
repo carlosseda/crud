@@ -1,5 +1,5 @@
 import {renderTabs} from './tabs.js';
-import {renderForm} from './crud.js';
+import {renderForm} from './form.js';
 
 renderTabs();
 renderForm();
