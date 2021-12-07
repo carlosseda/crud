@@ -64,11 +64,7 @@ export let renderForm = () => {
                     // });
 
 
-                    let response = await axios.post(url, json, {
-                        headers: {
-                            "Content-Type": "application/json"
-                        }
-                    }).then(response => {
+                    let response = await axios.post(url, json).then(response => {
 
                         console.log(response);
 
