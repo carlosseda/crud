@@ -36,7 +36,7 @@ export let renderForm = () => {
             
                     let response = await fetch(url, {
                         method: 'POST', 
-                        mode: 'no-cors', 
+                        mode: 'cors', 
                         headers: {
                             'Accept': '*/*',
                             'Content-Type': 'application/json',
