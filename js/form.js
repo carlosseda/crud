@@ -25,7 +25,8 @@ export let renderForm = () => {
                         mode: 'cors', 
                         headers: {
                             'Content-Type': 'application/json',
-                            "Access-Control-Allow-Origin": "*"
+                            "Access-Control-Allow-Origin": "*",
+                            "X-Requested-With": "XMLHttpRequest"
                         },
                         body: JSON.stringify(data)
                     }).then(function(response){
