@@ -42,26 +42,26 @@ export let renderForm = () => {
                             'Content-Type': 'application/json',
                         },
                         body: json
-                    }).then(function(response){
-                        console.log(response);
-                    }).catch(function(error) {
+                    }).then(response => response.text())
+                    .then(result => console.log(result))
+                    .catch(error => console.log('error', error));
 
-                        if(error.response.status == '400'){
+                    //     if(error.response.status == '400'){
     
-                            let errors = error.response.data.errors;      
-                            let errorMessage = '';
+                    //         let errors = error.response.data.errors;      
+                    //         let errorMessage = '';
         
-                            Object.keys(errors).forEach(function(key) {
-                                errorMessage += '<li>' + errors[key] + '</li>';
-                            })
+                    //         Object.keys(errors).forEach(function(key) {
+                    //             errorMessage += '<li>' + errors[key] + '</li>';
+                    //         })
             
-                            console.log(errorMessage);
-                        }
+                    //         console.log(errorMessage);
+                    //     }
     
-                        if(error.response.status == '500'){
-                            console.log(error);
-                        }
-                    });
+                    //     if(error.response.status == '500'){
+                    //         console.log(error);
+                    //     }
+                    // });
 
 
                 //     let response = await axios.post(url, json).then(response => {
