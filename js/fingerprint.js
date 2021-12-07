@@ -1,4 +1,4 @@
-import '/node_modules/clientjs/dist/client.min.js';
+import ClientJS from 'clientjs'
 
 const client = new ClientJS();
 
