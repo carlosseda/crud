@@ -1,4 +1,4 @@
-import { ClientJS } from 'clientjs';
+import 'clientjs';
 
 const client = new ClientJS();
 
