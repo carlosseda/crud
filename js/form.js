@@ -33,16 +33,8 @@ export let renderForm = () => {
                             "X-Requested-With": "XMLHttpRequest"
                         },
                         body: data
-                    }).then(function(error){
-                        let errors = error.response.data.errors;      
-                        let errorMessage = '';
-    
-                        Object.keys(errors).forEach(function(key) {
-                            errorMessage += '<li>' + errors[key] + '</li>';
-                        })
-        
-                        console.log(errorMessage);
-
+                    }).then(function(response){
+                        console.log(response.json());
                     }).catch(function(error) {
 
                         if(error.response.status == '400'){
