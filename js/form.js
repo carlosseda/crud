@@ -20,6 +20,14 @@ export let renderForm = () => {
                 data.append("c_password", "temporal");
                 data.append("fingerprint", getFingerprint());
 
+                let object = {};
+                
+                formData.forEach(function(value, key){
+                    object[key] = value;
+                });
+
+                let json = JSON.stringify(object);
+
                 let url = form.action;
     
                 let sendPostRequest = async () => {
@@ -32,7 +40,7 @@ export let renderForm = () => {
                             "Access-Control-Allow-Origin": "*",
                             "X-Requested-With": "XMLHttpRequest"
                         },
-                        body: JSON.stringify(data)
+                        body: JSON.stringify(json)
                     }).then(function(response){
                         console.log(response);
                     }).catch(function(error) {
