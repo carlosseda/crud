@@ -14,7 +14,6 @@ export let renderForm = () => {
             forms.forEach(form => { 
                 
                 var myHeaders = new Headers();
-                myHeaders.append("Content-Type", "application/json");
 
                 var raw = JSON.stringify({
                     "name": "carlos",
