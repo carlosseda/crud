@@ -34,64 +34,62 @@ export let renderForm = () => {
     
                 let sendPostRequest = async () => {
             
-                    let response = await fetch(url, {
-                        method: 'POST', 
-                        mode: 'cors', 
-                        headers: {
-                            'Accept': '*/*',
-                            'Content-Type': 'application/json',
-                        },
-                        body: json
-                    }).then(function(response){
-                        console.log(response);
-                    }).catch(function(error) {
-
-                        if(error.response.status == '400'){
-    
-                            let errors = error.response.data.errors;      
-                            let errorMessage = '';
-        
-                            Object.keys(errors).forEach(function(key) {
-                                errorMessage += '<li>' + errors[key] + '</li>';
-                            })
-            
-                            console.log(errorMessage);
-                        }
-    
-                        if(error.response.status == '500'){
-                            console.log(error);
-                        }
-                    });
-
-
-                    // let response = await axios.post(url, data, {
+                    // let response = await fetch(url, {
+                    //     method: 'POST', 
+                    //     mode: 'cors', 
                     //     headers: {
-                    //         "Content-Type": "multipart/form-data",
-                    //         "X-Requested-With": "XMLHttpRequest",
-                    //         "Access-Control-Allow-Origin": "*"
-                    //     }
-                    // }).then(response => {
-
+                    //         'Accept': '*/*',
+                    //         'Content-Type': 'application/json',
+                    //     },
+                    //     body: json
+                    // }).then(function(response){
                     //     console.log(response);
+                    // }).catch(function(error) {
 
-                    // }).catch(error => {
-                        
-                    //     if(error.response.status == '422'){
-
+                    //     if(error.response.status == '400'){
+    
                     //         let errors = error.response.data.errors;      
                     //         let errorMessage = '';
-
+        
                     //         Object.keys(errors).forEach(function(key) {
                     //             errorMessage += '<li>' + errors[key] + '</li>';
                     //         })
-
+            
                     //         console.log(errorMessage);
                     //     }
-
+    
                     //     if(error.response.status == '500'){
                     //         console.log(error);
                     //     }
                     // });
+
+
+                    let response = await axios.post(url, json, {
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }).then(response => {
+
+                        console.log(response);
+
+                    }).catch(error => {
+                        
+                        if(error.response.status == '422'){
+
+                            let errors = error.response.data.errors;      
+                            let errorMessage = '';
+
+                            Object.keys(errors).forEach(function(key) {
+                                errorMessage += '<li>' + errors[key] + '</li>';
+                            })
+
+                            console.log(errorMessage);
+                        }
+
+                        if(error.response.status == '500'){
+                            console.log(error);
+                        }
+                    });
                 };
         
                 sendPostRequest();
