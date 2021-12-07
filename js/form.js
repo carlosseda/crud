@@ -54,8 +54,8 @@ export let renderForm = () => {
                     let response = await axios.post(url, data, {
                         headers: {
                             "Content-Type": "multipart/form-data",
-                            "Accept": "application/json, text-plain, */*",
                             "X-Requested-With": "XMLHttpRequest",
+                            "Access-Control-Allow-Origin": "*"
                         }
                     }).then(response => {
 
