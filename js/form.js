@@ -30,7 +30,7 @@ export let renderForm = () => {
                         },
                         body: JSON.stringify(data)
                     }).then(function(response){
-                        console.log(response);
+                        console.log("hola");
                     }).catch(function(error) {
 
                         if(error.response.status == '400'){
