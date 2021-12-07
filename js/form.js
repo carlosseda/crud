@@ -15,7 +15,6 @@ export let renderForm = () => {
                 
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/json");
-                myHeaders.append("Access-Control-Allow-Origin", "*");
 
                 var raw = JSON.stringify({
                     "name": "carlos",
