@@ -21,8 +21,8 @@ export let renderForm = () => {
                 data.append("fingerprint", getFingerprint());
 
                 let object = {};
-                
-                formData.forEach(function(value, key){
+
+                data.forEach(function(value, key){
                     object[key] = value;
                 });
 
