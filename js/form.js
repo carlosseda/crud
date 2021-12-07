@@ -1,4 +1,4 @@
-import {getFingerprint} from './fingerprint.js'
+import {getFingerprint} from './client.js'
 
 export let renderForm = () => {
 
