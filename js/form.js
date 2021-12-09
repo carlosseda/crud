@@ -40,9 +40,9 @@ export let renderForm = () => {
                         },
                         body: json
                     })
-                    .then(result => console.log(result))
-                    .catch(error => {
-                        if(error.response.status == '400'){
+                    .then(result => {
+
+                        if(result.response.status == '400'){
 
                             let errors = error.response.data.data;      
                             let errorMessage = '';
@@ -54,8 +54,12 @@ export let renderForm = () => {
                             console.log(errorMessage);
                         }
 
-                        if(error.response.status == '500'){
+                        if(result.response.status == '500'){
                             console.log(error);
+                        } 
+
+                        if (response.ok) {
+                            console.log(result)
                         }
                     });
 
