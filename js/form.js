@@ -49,8 +49,9 @@ export let renderForm = () => {
                         
                         if(error.status == '400'){
 
-                            console.log(error);
-                            let errors = error.response.data;      
+                            let errors = error.response.text();     
+                            console.log(errors);
+ 
                             let errorMessage = '';
 
                             Object.keys(errors).forEach( (key) => {
