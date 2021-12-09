@@ -79,7 +79,8 @@ export let renderForm = () => {
                             let errors = error.response.data;      
                             let errorMessage = '';
 
-                            errors.forEach((key) => {
+                            console.log(errors);
+                            Object.keys(errors).forEach( (key) => {
                                 errorMessage += '<li>' + errors[key] + '</li>';
                             })
 
