@@ -49,7 +49,7 @@ export let renderForm = () => {
                         
                         if(error.status == '400'){
 
-                            let errors = error.response.text();     
+                            let errors = error.response;     
                             console.log(errors);
  
                             let errorMessage = '';
