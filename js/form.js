@@ -1,8 +1,8 @@
 import {getFingerprint} from './client.js';
-import {Joi} from '../node_modules/joi/dist/joi-browser.min.js'
+import * as _Joi from '../node_modules/joi/dist/joi-browser.min.js'
 
 export let renderForm = () => {
-
+    let Joi = _Joi.default;
     let forms = document.querySelectorAll(".admin-form");
     let createButton = document.getElementById("crud__create-button");
 
