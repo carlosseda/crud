@@ -40,11 +40,11 @@ export let renderForm = () => {
                         },
                         body: json
                     })
-                    .then(result => {
+                    .then(response => {
 
-                        if(result.status == '400'){
+                        if(response.status == '400'){
 
-                            let errors = error.response.data.data;      
+                            let errors = response.data.data;      
                             let errorMessage = '';
 
                             Object.keys(errors).forEach( (key) => {
@@ -54,12 +54,12 @@ export let renderForm = () => {
                             console.log(errorMessage);
                         }
 
-                        if(result.status == '500'){
-                            console.log(error);
+                        if(response.status == '500'){
+                            console.log(response);
                         } 
 
                         if (response.ok) {
-                            console.log(result)
+                            console.log(response)
                         }
                     });
 
