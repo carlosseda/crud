@@ -59,6 +59,8 @@ export let renderForm = () => {
                         }
                     });
 
+                    // En caso de usar Axios
+                    
                     // let response = await axios.post(url, json,
                     //     {
                     //         headers: {
