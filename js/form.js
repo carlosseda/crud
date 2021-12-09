@@ -43,9 +43,10 @@ export let renderForm = () => {
     // Also -
     
     try {
-        const joddd = await schema.validateAsync({ username: 'abc', birth_year: 1994 });
+        const joddd = schema.validateAsync({ username: 'abc', birth_year: 1994 });
     }
     catch (err) { }
+
     let forms = document.querySelectorAll(".admin-form");
     let createButton = document.getElementById("crud__create-button");
 
