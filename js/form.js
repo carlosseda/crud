@@ -1,5 +1,4 @@
 import {getFingerprint} from './client.js';
-import '../node_modules/axios/dist/axios.js'
 
 export let renderForm = () => {
 
