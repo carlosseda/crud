@@ -49,9 +49,12 @@ export let renderForm = () => {
                         
                         if(error.status == '400'){
 
-                            let errors = error.json().data;   
-                            console.log(errors);
- 
+                            let errors = error.json().data
+                            error.json().then(jsonError => {
+                                console.log("Json error from API");
+                                console.log(jsonError);
+                            })   
+                             
                             let errorMessage = '';
 
                             Object.keys(errors).forEach( (key) => {
