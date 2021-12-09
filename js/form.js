@@ -49,7 +49,7 @@ export let renderForm = () => {
                         
                         if(error.status == '400'){
 
-                            let errors = error.response.data.data;      
+                            let errors = error.response.data;      
                             let errorMessage = '';
 
                             Object.keys(errors).forEach( (key) => {
