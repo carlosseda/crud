@@ -34,17 +34,17 @@ export let renderForm = () => {
     
                 let sendPostRequest = async () => {
             
-                    let response = await fetch(url, {
-                        method: 'POST', 
-                        mode: 'cors', 
-                        headers: {
-                            'Accept': '*/*',
-                            'Content-Type': 'application/json', 
-                        },
-                        body: json
-                    }).then(response => response.text())
-                    .then(result => console.log(result))
-                    .catch(error => console.log('error', error));
+                    // let response = await fetch(url, {
+                    //     method: 'POST', 
+                    //     mode: 'cors', 
+                    //     headers: {
+                    //         'Accept': '*/*',
+                    //         'Content-Type': 'application/json', 
+                    //     },
+                    //     body: json
+                    // }).then(response => response.text())
+                    // .then(result => console.log(result))
+                    // .catch(error => console.log('error', error));
 
                     //     if(error.response.status == '400'){
     
@@ -64,28 +64,28 @@ export let renderForm = () => {
                     // });
 
 
-                //     let response = await axios.post(url, json).then(response => {
+                    let response = await axios.post(url, json).then(response => {
 
-                //         console.log(response);
+                        console.log(response);
 
-                //     }).catch(error => {
+                    }).catch(error => {
                         
-                //         if(error.response.status == '422'){
+                        if(error.response.status == '422'){
 
-                //             let errors = error.response.data.errors;      
-                //             let errorMessage = '';
+                            let errors = error.response.data.errors;      
+                            let errorMessage = '';
 
-                //             Object.keys(errors).forEach(function(key) {
-                //                 errorMessage += '<li>' + errors[key] + '</li>';
-                //             })
+                            Object.keys(errors).forEach(function(key) {
+                                errorMessage += '<li>' + errors[key] + '</li>';
+                            })
 
-                //             console.log(errorMessage);
-                //         }
+                            console.log(errorMessage);
+                        }
 
-                //         if(error.response.status == '500'){
-                //             console.log(error);
-                //         }
-                //     });
+                        if(error.response.status == '500'){
+                            console.log(error);
+                        }
+                    });
                 };
         
                 sendPostRequest();
