@@ -42,7 +42,7 @@ export let renderForm = () => {
                     })
                     .then(result => {
 
-                        if(result.response.status == '400'){
+                        if(result.status == '400'){
 
                             let errors = error.response.data.data;      
                             let errorMessage = '';
@@ -54,7 +54,7 @@ export let renderForm = () => {
                             console.log(errorMessage);
                         }
 
-                        if(result.response.status == '500'){
+                        if(result.status == '500'){
                             console.log(error);
                         } 
 
