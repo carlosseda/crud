@@ -49,8 +49,8 @@ export let renderForm = () => {
                         
                         if(error.status == '400'){
 
-                            // let errors = error.data;     
-                            console.log(error.json());
+                            let errors = error.json().data;   
+                            console.log(errors);
  
                             let errorMessage = '';
 
