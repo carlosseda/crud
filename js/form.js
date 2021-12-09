@@ -46,6 +46,7 @@ export let renderForm = () => {
                         console.log(result)
                     })
                     .catch(error => {
+                        console.log(error);
                         if(error.status == '400'){
 
                             let errors = error.response.data.data;      
