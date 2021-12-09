@@ -58,7 +58,7 @@ export let renderForm = () => {
                             console.log(errorMessage);
                         }
 
-                        if(error.response.status == '500'){
+                        if(error.status == '500'){
                             console.log(error);
                         }
                     });
