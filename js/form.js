@@ -1,9 +1,7 @@
 import {getFingerprint} from './client.js';
-import * as _Joi from '../node_modules/joi/dist/joi-browser.min.js'
+import * as Joi from '../node_modules/joi/dist/joi-browser.min.js'
 
 export let renderForm = () => {
-    let Joi = _Joi.default;
-
     const schema = Joi.object({
         username: Joi.string()
             .alphanum()
