@@ -55,10 +55,10 @@ export let renderForm = () => {
                                 let errorMessage = '';
 
                                 Object.keys(errors).forEach( (key) => {
-                                    errorMessage += '<li>' + errors[key] + '</li>';
+                                    let errorMessage = document.createElement('li');
+                                    errorMessage.textContent = errors[key];
+                                    console.log(errorMessage)
                                 })
-
-                                console.log(errorMessage);
                             })   
                         }
 
