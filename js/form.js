@@ -31,55 +31,22 @@ export let renderForm = () => {
     
                 let sendPostRequest = async () => {
             
-                    // let response = await fetch(url, {
-                    //     method: 'POST', 
-                    //     mode: 'cors', 
-                    //     headers: {
-                    //         'Accept': '*/*',
-                    //         'Content-Type': 'application/json', 
-                    //     },
-                    //     body: json
-                    // }).then(response => response.text())
-                    // .then(result => console.log(result))
-                    // .catch(error => console.log('error', error));
-
-                    //     if(error.response.status == '400'){
-    
-                    //         let errors = error.response.data.errors;      
-                    //         let errorMessage = '';
-        
-                    //         Object.keys(errors).forEach(function(key) {
-                    //             errorMessage += '<li>' + errors[key] + '</li>';
-                    //         })
-            
-                    //         console.log(errorMessage);
-                    //     }
-    
-                    //     if(error.response.status == '500'){
-                    //         console.log(error);
-                    //     }
-                    // });
-
-
-                    let response = await axios.post(url, json,
-                        {
-                            headers: {
-                                'Accept': '*/*',
-                                'Content-Type': 'application/json',
-                            }
-                        }
-                        ).then(response => {
-
-                        console.log(response);
-
-                    }).catch(error => {
-                        
+                    let response = await fetch(url, {
+                        method: 'POST', 
+                        mode: 'cors', 
+                        headers: {
+                            'Accept': '*/*',
+                            'Content-Type': 'application/json', 
+                        },
+                        body: json
+                    })
+                    .then(result => console.log(result))
+                    .catch(error => {
                         if(error.response.status == '400'){
 
                             let errors = error.response.data.data;      
                             let errorMessage = '';
 
-                            console.log(errors);
                             Object.keys(errors).forEach( (key) => {
                                 errorMessage += '<li>' + errors[key] + '</li>';
                             })
@@ -91,6 +58,36 @@ export let renderForm = () => {
                             console.log(error);
                         }
                     });
+
+                    // let response = await axios.post(url, json,
+                    //     {
+                    //         headers: {
+                    //             'Accept': '*/*',
+                    //             'Content-Type': 'application/json',
+                    //         }
+                    //     })
+                    // .then(response => {
+                        
+                    //     console.log(response);
+                    // })
+                    // .catch(error => {
+                        
+                    //     if(error.response.status == '400'){
+
+                    //         let errors = error.response.data.data;      
+                    //         let errorMessage = '';
+
+                    //         Object.keys(errors).forEach( (key) => {
+                    //             errorMessage += '<li>' + errors[key] + '</li>';
+                    //         })
+
+                    //         console.log(errorMessage);
+                    //     }
+
+                    //     if(error.response.status == '500'){
+                    //         console.log(error);
+                    //     }
+                    // });
                 };
         
                 sendPostRequest();
