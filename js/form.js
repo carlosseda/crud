@@ -27,9 +27,6 @@ export let renderForm = () => {
                 });
 
                 let json = JSON.stringify(object);
-
-                console.log(json);
-
                 let url = form.action;
     
                 let sendPostRequest = async () => {
@@ -64,7 +61,14 @@ export let renderForm = () => {
                     // });
 
 
-                    let response = await axios.post(url, json).then(response => {
+                    let response = await axios.post(url, json,
+                        {
+                            headers: {
+                                'Accept': '*/*',
+                                'Content-Type': 'application/json',
+                            }
+                        }
+                        ).then(response => {
 
                         console.log(response);
 
