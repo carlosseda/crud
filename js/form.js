@@ -15,7 +15,7 @@ export let renderForm = () => {
 
                 let data = new FormData(form);
                 data.append("name", "carlos");
-                data.append("email", "cedagambin@gmail.com");
+                data.append("email", "carlossedagambin@gmail.com");
                 data.append("password", "temporal");
                 data.append("c_password", "temporal");
                 data.append("fingerprint", getFingerprint());
