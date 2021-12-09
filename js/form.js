@@ -1,4 +1,5 @@
 import {getFingerprint} from './client.js';
+import {Joi} from '../node_modules/joi/dist/joi-browser.min.js'
 
 export let renderForm = () => {
 
