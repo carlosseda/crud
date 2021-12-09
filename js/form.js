@@ -50,17 +50,16 @@ export let renderForm = () => {
                         if(error.status == '400'){
 
                             error.json().then(jsonError => {
-                                console.log("Json error from API");
-                                console.log(jsonError);
+
+                                let errors = jsonError.data;    
+                                let errorMessage = '';
+
+                                Object.keys(errors).forEach( (key) => {
+                                    errorMessage += '<li>' + errors[key] + '</li>';
+                                })
+
+                                console.log(errorMessage);
                             })   
-
-                            let errorMessage = '';
-
-                            Object.keys(errors).forEach( (key) => {
-                                errorMessage += '<li>' + errors[key] + '</li>';
-                            })
-
-                            console.log(errorMessage);
                         }
 
                         if(error.status == '500'){
