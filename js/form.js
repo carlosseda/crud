@@ -1,4 +1,5 @@
-import {getFingerprint} from './client.js'
+import {getFingerprint} from './client.js';
+import '../node_modules/axios/dist/axios.js'
 
 export let renderForm = () => {
 
@@ -52,7 +53,6 @@ export let renderForm = () => {
                             error.json().then(jsonError => {
 
                                 let errors = jsonError.data;    
-                                let errorMessage = '';
 
                                 Object.keys(errors).forEach( (key) => {
                                     let errorMessage = document.createElement('li');
