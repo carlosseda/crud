@@ -49,6 +49,7 @@ export let renderForm = () => {
                         
                         if(error.status == '400'){
 
+                            console.log(error);
                             let errors = error.response.data;      
                             let errorMessage = '';
 
