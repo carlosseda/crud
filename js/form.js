@@ -41,12 +41,12 @@ export let renderForm = () => {
                         body: json
                     })
                     .then(response => {
-                        if (!response.ok) throw Error(response);
+                        if (!response.ok) throw response;
 
                         console.log(result)
                     })
                     .catch(error => {
-                        console.log(error.text());
+                        
                         if(error.status == '400'){
 
                             let errors = error.response.data.data;      
