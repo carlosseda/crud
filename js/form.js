@@ -21,7 +21,9 @@ export let renderForm = () => {
                 let sendPostRequest = async () => {
             
                     let request = await fetch(url, {
-                        // Authorization: 'Bearer ' + sessionStorage.getItem('key'),
+                        headers: {
+                            'Authorization': 'Bearer ' + sessionStorage.getItem('token'),
+                        },
                         method: 'POST', 
                         body: data
                     })
