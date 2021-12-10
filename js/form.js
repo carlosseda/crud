@@ -33,8 +33,8 @@ export let renderForm = () => {
 
                         return response.json();
                     })
-                    .then(data => {
-                        console.log(data);
+                    .then(json => {
+                        console.log(json.data);
                     })
                     .catch(error => {
                         
