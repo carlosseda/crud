@@ -25,9 +25,9 @@ export let renderForm = () => {
                 let sendPostRequest = async () => {
             
                     let request = await fetch(url, {
-                        Authorization: 'Bearer ' + sessionStorage.getItem('key'),
-                        method: 'GET', 
-                        // body: data
+                        // Authorization: 'Bearer ' + sessionStorage.getItem('key'),
+                        method: 'POST', 
+                        body: data
                     })
                     .then(response => {
                         if (!response.ok) throw response;
@@ -35,8 +35,8 @@ export let renderForm = () => {
                         return response.json();
                     })
                     .then(json => {
-                        // sessionStorage.setItem('key', json.data);
-                        console.log(json);
+                        sessionStorage.setItem('key', json.data);
+                        console.log(json.data);
                     })
                     .catch(error => {
                         

@@ -61,7 +61,7 @@
 
                 <div class="crud__form">
 
-                    <form class="admin-form" id="book-form" action="http://141.94.27.118:8080/api/clients" autocomplete="off">
+                    <form class="admin-form" id="book-form" action="http://141.94.27.118:8080/api/register" autocomplete="off">
                                 
                         <input autocomplete="false" name="hidden" type="text" style="display:none;">
                         <input type="hidden" name="id" value="">
@@ -72,9 +72,6 @@
                                     <li class="tab-item tab-active" data-tab="content">
                                         Contenido
                                     </li>      
-                                    <li class="tab-item" data-tab="shop">
-                                        Tienda
-                                    </li>
                                 </ul>
                             </div>
 
@@ -89,31 +86,51 @@
                         </div>
                         
                         <div class="tab-panel tab-active" data-tab="content">
-                            <div class="crud__form-one-column">
+                            <div class="crud__form-two-columns">
                                 <div class="crud__form-element">
                                     <div class="crud__form-label">
-                                        <label for="title" class="label-highlight">Título</label>
+                                        <label for="name" class="label-highlight">Nombre</label>
                                     </div>
                                     <div class="crud__form-input">
-                                        <input type="text" name="title" value="" class="input-highlight"  />
+                                        <input type="text" name="name" value="" class="input-highlight"  />
                                     </div>
                                 </div>
 
                                 <div class="crud__form-element">
                                     <div class="crud__form-label">
-                                        <label for="author" class="label-highlight">Autor</label>
+                                        <label for="email" class="label-highlight">Email</label>
                                     </div>
                                     <div class="crud__form-input">
-                                        <input type="text" name="author" value="" class="input-highlight"  />
+                                        <input type="text" name="email" value="" class="input-highlight"  />
                                     </div>
                                 </div>
 
                                 <div class="crud__form-element">
                                     <div class="crud__form-label">
-                                        <label for="editor" class="label-highlight">Editor</label>
+                                        <label for="password" class="label-highlight">Contraseña</label>
                                     </div>
                                     <div class="crud__form-input">
-                                        <input type="text" name="editor" value=""  class="input-highlight"  />
+                                        <input type="password" name="password" value=""  class="input-highlight"  />
+                                    </div>
+                                </div>
+
+                                <div class="crud__form-element">
+                                    <div class="crud__form-label">
+                                        <label for="c_password" class="label-highlight">Repita la contraseña</label>
+                                    </div>
+                                    <div class="crud__form-input">
+                                        <input type="password" name="c_password" value=""  class="input-highlight"  />
+                                    </div>
+                                </div>
+                                <div class="crud__form-element">
+                                    <div class="crud__form-label">
+                                        <label for="rol" class="label-highlight">Rol</label>
+                                    </div>
+                                    <div class="crud__form-input">
+                                        <input type="radio" name="rol" value="admin">
+                                        <label for="louie">Admin</label>
+                                        <input type="radio" name="rol" value="user">
+                                        <label for="louie">Usuario</label>
                                     </div>
                                 </div>
                             </div>
@@ -140,7 +157,7 @@
            
         <script src="node_modules/clientjs/dist/client.min.js"></script>
 
-        <script type="module" src="js/main.js"></script>
+        <script type="module" src="js/app.js"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
         <script>
