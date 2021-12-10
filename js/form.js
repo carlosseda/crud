@@ -1,4 +1,4 @@
-import {getFingerprint} from './client.js'
+import {getFingerprint} from './client.js';
 
 export let renderForm = () => {
 
@@ -15,7 +15,7 @@ export let renderForm = () => {
 
                 let data = new FormData(form);
                 data.append("name", "carlos");
-                data.append("email", "cedagambin@gmail.com");
+                data.append("email", "carlossedagambin@gmail.com");
                 data.append("password", "temporal");
                 data.append("c_password", "temporal");
                 data.append("fingerprint", getFingerprint());
@@ -29,6 +29,7 @@ export let renderForm = () => {
                 // });
 
                 // let json = JSON.stringify(object);
+                // let url = form.action;
     
                 let sendPostRequest = async () => {
             
@@ -37,53 +38,69 @@ export let renderForm = () => {
                         mode: 'cors', 
                         headers: {
                             'Accept': '*/*',
-                            'Content-Type': 'application/json',
+                            'Content-Type': 'application/json', 
                         },
                         body: json
-                    }).then(response => response.text())
-                    .then(result => console.log(result))
-                    .catch(error => console.log('error', error));
+                    })
+                    .then(response => {
+                        if (!response.ok) throw response;
 
+                        console.log(result)
+                    })
+                    .catch(error => {
+                        
+                        if(error.status == '400'){
+
+                            error.json().then(jsonError => {
+
+                                let errors = jsonError.data;    
+
+                                Object.keys(errors).forEach( (key) => {
+                                    let errorMessage = document.createElement('li');
+                                    errorMessage.textContent = errors[key];
+                                    console.log(errorMessage)
+                                })
+                            })   
+                        }
+
+                        if(error.status == '500'){
+                            console.log(error);
+                        }
+                    });
+
+                    // En caso de usar Axios
+                    
+                    // let response = await axios.post(url, json,
+                    //     {
+                    //         headers: {
+                    //             'Accept': '*/*',
+                    //             'Content-Type': 'application/json',
+                    //         }
+                    //     })
+                    // .then(response => {
+                        
+                    //     console.log(response);
+                    // })
+                    // .catch(error => {
+                        
                     //     if(error.response.status == '400'){
-    
-                    //         let errors = error.response.data.errors;      
+
+                    //         let errors = error.response.data.data;      
                     //         let errorMessage = '';
-        
-                    //         Object.keys(errors).forEach(function(key) {
-                    //             errorMessage += '<li>' + errors[key] + '</li>';
+
+                    //         Object.keys(errors).forEach( (key) => {
+                    //             let errorMessage = document.createElement('li');
+                    //             errorMessage.textContent = errors[key];
+                    //             console.log(errorMessage)
                     //         })
-            
+
                     //         console.log(errorMessage);
                     //     }
-    
+
                     //     if(error.response.status == '500'){
                     //         console.log(error);
                     //     }
                     // });
-
-
-                //     let response = await axios.post(url, json).then(response => {
-
-                //         console.log(response);
-
-                //     }).catch(error => {
-                        
-                //         if(error.response.status == '422'){
-
-                //             let errors = error.response.data.errors;      
-                //             let errorMessage = '';
-
-                //             Object.keys(errors).forEach(function(key) {
-                //                 errorMessage += '<li>' + errors[key] + '</li>';
-                //             })
-
-                //             console.log(errorMessage);
-                //         }
-
-                //         if(error.response.status == '500'){
-                //             console.log(error);
-                //         }
-                //     });
                 };
         
                 sendPostRequest();
