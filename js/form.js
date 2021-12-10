@@ -21,19 +21,10 @@ export let renderForm = () => {
                 data.append("fingerprint", getFingerprint());
 
                 let url = form.action;
-                let object = {};
-
-                console.log(data);
-                // data.forEach(function(value, key){
-                //     object[key] = value;
-                // });
-
-                // let json = JSON.stringify(object);
-                // let url = form.action;
     
                 let sendPostRequest = async () => {
             
-                    let response = await fetch(url, {
+                    let request = await fetch(url, {
                         method: 'POST', 
                         body: data
                     })
@@ -65,15 +56,8 @@ export let renderForm = () => {
 
                     // En caso de usar Axios
                     
-                    // let response = await axios.post(url, json,
-                    //     {
-                    //         headers: {
-                    //             'Accept': '*/*',
-                    //             'Content-Type': 'application/json',
-                    //         }
-                    //     })
+                    // let request = await axios.post(url, json)
                     // .then(response => {
-                        
                     //     console.log(response);
                     // })
                     // .catch(error => {
