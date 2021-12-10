@@ -34,8 +34,9 @@ export let renderForm = () => {
                         return response.json();
                     })
                     .then(json => {
+                        console.log(json);
                         sessionStorage.setItem(key, json.data);
-                        let key = sessionStorage.getItem('key');
+                        let key = sessionStorage.getItem(key);
 
                         console.log(key);
                     })
