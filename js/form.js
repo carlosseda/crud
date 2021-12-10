@@ -14,10 +14,6 @@ export let renderForm = () => {
             forms.forEach(form => { 
 
                 let data = new FormData(form);
-                data.append("name", "carlos");
-                data.append("email", "carlossedagambin@gmail.com");
-                data.append("password", "temporal");
-                data.append("c_password", "temporal");
                 data.append("fingerprint", getFingerprint());
 
                 let url = form.action;
