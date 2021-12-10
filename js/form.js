@@ -34,7 +34,8 @@ export let renderForm = () => {
                         return response.json();
                     })
                     .then(json => {
-                        console.log(json.data);
+                        localStorage.setItem(key, json.data);
+                        console.log(localStorage.getItem(key));
                     })
                     .catch(error => {
                         
