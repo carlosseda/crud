@@ -40,7 +40,7 @@ export let renderForm = () => {
                             'Accept': '*/*',
                             'Content-Type': 'application/json', 
                         },
-                        body: json
+                        body: data
                     })
                     .then(response => {
                         if (!response.ok) throw response;
