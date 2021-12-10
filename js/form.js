@@ -20,17 +20,15 @@ export let renderForm = () => {
                 data.append("c_password", "temporal");
                 data.append("fingerprint", getFingerprint());
 
+                let url = form.action;
                 let object = {};
 
-                data.forEach(function(value, key){
-                    object[key] = value;
-                });
+                console.log(data);
+                // data.forEach(function(value, key){
+                //     object[key] = value;
+                // });
 
-                let json = JSON.stringify(object);
-
-                console.log(json);
-
-                let url = form.action;
+                // let json = JSON.stringify(object);
     
                 let sendPostRequest = async () => {
             
