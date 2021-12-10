@@ -31,7 +31,7 @@ export let renderForm = () => {
                     .then(response => {
                         if (!response.ok) throw response;
 
-                        console.log(result)
+                        console.log(response)
                     })
                     .catch(error => {
                         
