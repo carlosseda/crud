@@ -24,8 +24,8 @@ export let renderForm = () => {
                         headers: {
                             'Authorization': 'Bearer ' + localStorage.getItem('token'),
                         },
-                        method: 'GET', 
-                        // body: data
+                        method: 'POST', 
+                        body: data
                     })
                     .then(response => {
                         if (!response.ok) throw response;
