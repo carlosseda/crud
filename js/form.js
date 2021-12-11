@@ -30,7 +30,7 @@ export let renderForm = () => {
                     .then(response => {
                         if (!response.ok) throw response;
 
-                        console.log(response);
+                        console.log(response.data);
 
                         return response.json();
                     })
