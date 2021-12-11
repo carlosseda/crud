@@ -24,16 +24,18 @@ export let renderForm = () => {
                         headers: {
                             'Authorization': 'Bearer ' + localStorage.getItem('token'),
                         },
-                        method: 'POST', 
-                        body: data
+                        method: 'GET', 
+                        // body: data
                     })
                     .then(response => {
                         if (!response.ok) throw response;
 
+                        console.log(response);
+
                         return response.json();
                     })
                     .then(json => {
-                        localStorage.setItem('token', json.data);
+                        // localStorage.setItem('token', json.data);
                         console.log(json.data);
                     })
                     .catch(error => {
