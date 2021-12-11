@@ -22,7 +22,7 @@ export let renderForm = () => {
             
                     let request = await fetch(url, {
                         headers: {
-                            'Authorization': 'Bearer ' + sessionStorage.getItem('token'),
+                            'Authorization': 'Bearer ' + localStorage.getItem('token'),
                         },
                         method: 'POST', 
                         body: data
@@ -33,7 +33,7 @@ export let renderForm = () => {
                         return response.json();
                     })
                     .then(json => {
-                        sessionStorage.setItem('token', json.data);
+                        localStorage.setItem('token', json.data);
                         console.log(json.data);
                     })
                     .catch(error => {
