@@ -111,7 +111,7 @@ class Table extends HTMLElement {
         let header = '';
 
         Object.entries(this.data[0]).forEach(([key, value]) => {
-            header += `<th>${element}</th>`;
+            header += `<th>${key}</th>`;
         });
 
         return `<tr>${header}</tr>`;
