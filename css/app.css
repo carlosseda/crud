@@ -747,7 +747,7 @@ footer {
 
 .tab-panel.tab-active {
   display: block;
-  padding: 2em;
+  padding: 2em 1em;
 }
 
 .crud {
@@ -844,7 +844,7 @@ footer {
   color: white;
   font-family: "Ubuntu";
   font-weight: 600;
-  padding: 0.2em 0.5em;
+  padding: 0.2em;
   width: 100%;
 }
 

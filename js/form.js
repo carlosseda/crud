@@ -32,7 +32,11 @@ export let renderForm = () => {
                         return response.json();
                     })
                     .then(json => {
+<<<<<<< HEAD
                         localStorage.setItem('token', json.data);
+=======
+                        console.log(json.data);
+>>>>>>> 0f459ac41cf666bd4ecd2f64cb2d9aaaf0ca669d
                     })
                     .catch(error => {
                         
