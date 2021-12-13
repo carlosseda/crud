@@ -107,11 +107,13 @@ class Table extends HTMLElement {
 
     getTableHeader() {
 
-        // let headers = this.getAttribute('headers');
+        let headers = this.getAttribute('headers');
         let header = '';
 
         Object.entries(this.data[0]).forEach(([key, value]) => {
-            header += `<th>${key}</th>`;
+            if(headers.includes(key)){
+                header += `<th>${key}</th>`;
+            }
         });
 
         return `<tr>${header}</tr>`;
@@ -119,6 +121,7 @@ class Table extends HTMLElement {
 
     getTableData() {
 
+        let headers = this.getAttribute('headers');
         let data = '';
 
         this.data.forEach(element => {
@@ -126,7 +129,9 @@ class Table extends HTMLElement {
             data += `<tr>`;
 
             Object.entries(element).forEach(([key, value]) => {
-                data += `<td>${value}</td>`;
+                if(headers.includes(key)){
+                    data += `<td>${value}</td>`;
+                }
             });
 
             data += `</tr>`;
