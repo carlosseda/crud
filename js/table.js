@@ -73,24 +73,23 @@ class Table extends HTMLElement {
     }
 
     connectedCallback() {
-        this.load();
-    }
-
-    load(){
-
+        
         let url = this.getAttribute('url');
 
-        fetch(url, { 
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('token'),
-            }
-        }) 
-        .then(response => response.json())
-        .then(json => {
-            this.data = json.data;
-            this.render();
-        })
-        .catch(error => console.log(error));
+        if(url){
+
+            fetch(url, { 
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                }
+            }) 
+            .then(response => response.json())
+            .then(json => {
+                this.data = json.data;
+                this.render();
+            })
+            .catch(error => console.log(error));
+        }
     }
 
     render() {
