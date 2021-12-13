@@ -73,7 +73,7 @@ class Table extends HTMLElement {
     }
 
     connectedCallback() {
-        
+
         let url = this.getAttribute('url');
 
         if(url){
@@ -109,6 +109,9 @@ class Table extends HTMLElement {
 
         // let headers = this.getAttribute('headers');
         let header = '';
+
+        console.log(this.data);
+        console.log(this.data[0]);
 
         this.data[0].forEach(element => {
             header += `<th>${element}</th>`;
