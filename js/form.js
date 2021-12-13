@@ -13,10 +13,9 @@ export let renderForm = () => {
     
             forms.forEach(form => { 
 
+                let url = form.action;
                 let data = new FormData(form);
                 data.append("fingerprint", getFingerprint());
-
-                let url = form.action;
     
                 let sendPostRequest = async () => {
             
@@ -24,19 +23,16 @@ export let renderForm = () => {
                         headers: {
                             'Authorization': 'Bearer ' + localStorage.getItem('token'),
                         },
-                        method: 'GET', 
-                        // body: data
+                        method: 'POST', 
+                        body: data
                     })
                     .then(response => {
                         if (!response.ok) throw response;
 
-                        console.log(response.data);
-
                         return response.json();
                     })
                     .then(json => {
-                        // localStorage.setItem('token', json.data);
-                        console.log(json.data);
+                        localStorage.setItem('token', json.data);
                     })
                     .catch(error => {
                         

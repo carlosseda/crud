@@ -10,7 +10,6 @@
 }
 
 .crud__table table{
-    font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
@@ -18,8 +17,8 @@
 .crud__table td, .crud__table th {
     border: 1px solid hsl(0, 0%, 87%);
     color: hsl(0, 0%, 100%);
-    text-align: left;
     padding: 8px;
+    text-align: left;
 }
 
 .crud__form{
