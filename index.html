@@ -61,7 +61,7 @@
 
                 <div class="crud__form">
 
-                    <form class="admin-form" id="book-form" action="http://141.94.27.118:8080/api/clients" autocomplete="off">
+                    <form class="admin-form" id="login-form" action="http://141.94.27.118:8080/api/register" autocomplete="off">
                                 
                         <input autocomplete="false" name="hidden" type="text" style="display:none;">
                         <input type="hidden" name="id" value="">
@@ -122,15 +122,17 @@
                                         <input type="password" name="c_password" value=""  class="input-highlight"  />
                                     </div>
                                 </div>
+                            </div>
+                            <div class="crud__form-one-column">
                                 <div class="crud__form-element">
                                     <div class="crud__form-label">
                                         <label for="rol" class="label-highlight">Rol</label>
                                     </div>
                                     <div class="crud__form-input">
-                                        <input type="radio" name="role" value="admin">
-                                        <label for="louie">Admin</label>
-                                        <input type="radio" name="role" value="user">
-                                        <label for="louie">Usuario</label>
+                                        <select name="role">
+                                            <option value="admin">Admin</option>
+                                            <option value="user">Usuario</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
