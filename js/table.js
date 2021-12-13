@@ -74,7 +74,6 @@ class Table extends HTMLElement {
 
     connectedCallback() {
         this.load();
-        this.render();
     }
 
     load(){
