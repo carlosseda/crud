@@ -110,14 +110,7 @@ class Table extends HTMLElement {
         // let headers = this.getAttribute('headers');
         let header = '';
 
-        console.log(this.data);
-        console.log(this.data[0]);
-
         Object.entries(this.data[0]).forEach(([key, value]) => {
-            console.log(`${key} ${value}`);
-        });
-
-        this.data[0].forEach(element => {
             header += `<th>${element}</th>`;
         });
 
@@ -132,7 +125,7 @@ class Table extends HTMLElement {
 
             data += `<tr>`;
 
-            element.forEach(value => {
+            Object.entries(element).forEach(([key, value]) => {
                 data += `<td>${value}</td>`;
             });
 
