@@ -16,7 +16,7 @@ class Menu extends HTMLElement {
 
     loadData() {
 
-        let url = this.url + this.getAttribute('menu');
+        let url = this.url + this.getAttribute("menu");
 
         if(url){
 
@@ -79,22 +79,11 @@ class Menu extends HTMLElement {
 
     getChildren() {
 
-        let html = '';
+        let html = 'hola';
 
-        this.data.forEach(element => {
-
-            data += `<tr>`;
-
-            Object.entries(element).forEach(([key, value]) => {
-                data += `<td>${value}</td>`;
-            });
-
-            data += `</tr>`;
-        });
-
-        this.data.forEach(child => {
-            html += `<li><a href="#" url="${child.custom_url}">${child.link_name}</a></li>`;
-        });
+        // this.data.forEach(child => {
+        //     html += `<li><a href="#" url="${child.custom_url}">${child.link_name}</a></li>`;
+        // });
 
         return html;
     }
