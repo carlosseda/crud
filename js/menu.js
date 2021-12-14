@@ -4,10 +4,6 @@ class Menu extends HTMLElement {
         super();
         this.shadow = this.attachShadow({ mode: 'open' });
         this.url="http://141.94.27.118:8080/api/display-menu/";
-
-        document.addEventListener("click", ( event =>{
-            document.dispatchEvent(new CustomEvent('newUrl', { detail: event.target.getAttribute('url') }));
-        }));
     }
 
     connectedCallback() {
@@ -79,11 +75,11 @@ class Menu extends HTMLElement {
 
     getChildren() {
 
-        let html = 'hola';
+        let html = '';
 
-        // this.data.forEach(child => {
-        //     html += `<li><a href="#" url="${child.custom_url}">${child.link_name}</a></li>`;
-        // });
+        this.data.forEach(child => {
+            html += `<li><a href="#" url="${child.custom_url}">${child.link_name}</a></li>`;
+        });
 
         return html;
     }
