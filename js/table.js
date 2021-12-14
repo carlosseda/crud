@@ -16,14 +16,16 @@ class Table extends HTMLElement {
     static get observedAttributes() { return ['url']; }
 
     connectedCallback() {
+        this.loadData();
         this.render();
     }
 
     attributeChangedCallback(){
+        this.loadData();
         this.render();
     }
 
-    render() {
+    loadData() {
 
         let url = this.getAttribute('url');
 
@@ -41,6 +43,9 @@ class Table extends HTMLElement {
             })
             .catch(error => console.log(error));
         }
+    }
+
+    render() {
 
         this.shadow.innerHTML = 
         `
