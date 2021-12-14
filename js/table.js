@@ -4,13 +4,6 @@ class Table extends HTMLElement {
         super();
         this.shadow = this.attachShadow({ mode: 'open' });
 
-        return new Proxy (this, {
-            get (...args) {
-              console.log ('get', ...args);
-              return Reflect.get (...args);
-            } 
-        });
-
         document.addEventListener("newData",( event =>{
             this.connectedCallback();
         }));
