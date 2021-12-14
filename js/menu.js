@@ -53,7 +53,6 @@ class Menu extends HTMLElement {
                 text-decoration: none;
             }
             a:hover {
-                background-color: hsl(0, 0%, 87%);
                 color: hsl(0, 0%, 100%);
             }
 
