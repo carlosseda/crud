@@ -802,10 +802,11 @@ footer {
   width: 23%;
 }
 
-.crud__form-errors {
+#crud__form-errors {
   background-color: #ff5100;
+  padding: 0.5em;
 }
-.crud__form-errors li {
+#crud__form-errors li {
   color: white;
 }
 

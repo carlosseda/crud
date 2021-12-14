@@ -50,8 +50,9 @@
     width: 23%;
 }
 
-.crud__form-errors{
-    background-color:  hsl(19, 100%, 50%);;
+#crud__form-errors{
+    background-color:  hsl(19, 100%, 50%);
+    padding: 0.5em;
     
     li{
         color: hsl(0, 0%, 100%);
