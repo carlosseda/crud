@@ -32,7 +32,7 @@ export let renderForm = () => {
                         return response.json();
                     })
                     .then(json => {
-                        console.log(json.data);
+                        document.dispatchEvent(new CustomEvent('newData'));
                     })
                     .catch(error => {
                         

@@ -3,6 +3,10 @@ class Table extends HTMLElement {
     constructor() {
         super();
         this.shadow = this.attachShadow({ mode: 'open' });
+
+        document.addEventListener("newData",( event =>{
+            this.connectedCallback();
+        }));
     }
 
     connectedCallback() {
