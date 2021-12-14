@@ -1,20 +1,20 @@
-.header__element.logo{
+.header__element{
     width: max-content;
 }
 
-.header__element.logo svg{
+.header__element svg{
     height: 3em;
     width: 3em;
 }
 
-.header__element.logo svg path{
+.header__element svg path{
     fill:hsl(19, 100%, 50%);
 }
 
-.header__element.title{
+.header__element{
     margin-left: 1em;
 }
 
-.header__element.title h1{
+.header__element h1{
     text-align: left;
 }
