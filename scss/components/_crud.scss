@@ -51,12 +51,17 @@
 }
 
 #crud__form-errors{
-    background-color:  hsl(19, 100%, 50%);
+    background-color:  hsl(19, 94%, 66%);
+    display: none;
+    padding: 0.5em;
 
     li{
         color: hsl(0, 0%, 100%);
-        padding: 0.5em;
     }
+}
+
+#crud__form-errors.active{
+    display: block;
 }
 
 .crud__form-element{

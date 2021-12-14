@@ -803,11 +803,16 @@ footer {
 }
 
 #crud__form-errors {
-  background-color: #ff5100;
+  background-color: #fa8a57;
+  display: none;
+  padding: 0.5em;
 }
 #crud__form-errors li {
   color: white;
-  padding: 0.5em;
+}
+
+#crud__form-errors.active {
+  display: block;
 }
 
 .crud__form-element {
