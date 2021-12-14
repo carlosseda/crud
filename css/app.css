@@ -400,7 +400,7 @@ h5, h6 {
   font-family: "Roboto Condensed";
 }
 
-a, td, p, button, li {
+a, td, th, p, button, li {
   font-family: "Roboto", sans-serif;
 }
 
@@ -762,7 +762,6 @@ footer {
 }
 
 .crud__table table {
-  font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -770,8 +769,8 @@ footer {
 .crud__table td, .crud__table th {
   border: 1px solid #dedede;
   color: white;
-  text-align: left;
   padding: 8px;
+  text-align: left;
 }
 
 .crud__form {
