@@ -25,6 +25,23 @@ class Table extends HTMLElement {
 
     render() {
 
+        let url = this.getAttribute('url');
+
+        if(url){
+
+            fetch(url, { 
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                }
+            }) 
+            .then(response => response.json())
+            .then(json => {
+                this.data = json.data;
+                this.render();
+            })
+            .catch(error => console.log(error));
+        }
+
         this.shadow.innerHTML = 
         `
         <style>
@@ -47,24 +64,7 @@ class Table extends HTMLElement {
             <tbody>
                 ${this.getTableData()}
             </tbody>
-        </table>`;
-
-        let url = this.getAttribute('url');
-
-        if(url){
-
-            fetch(url, { 
-                headers: {
-                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
-                }
-            }) 
-            .then(response => response.json())
-            .then(json => {
-                this.data = json.data;
-                this.render();
-            })
-            .catch(error => console.log(error));
-        }
+        </table>`;        
     }
 
     getTableHeader() {
