@@ -92,4 +92,11 @@ class Table extends HTMLElement {
     }           
 }
 
-customElements.define('table-component', Table);
+const ProxyTable = new Proxy(Table, {
+    construct(...args) {
+      console.log('constructor', ...args);
+      return Reflect.construct(...args);
+    }
+});
+
+customElements.define('table-component', ProxyTable);
