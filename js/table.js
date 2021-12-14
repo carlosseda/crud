@@ -5,7 +5,7 @@ class Table extends HTMLElement {
         this.shadow = this.attachShadow({ mode: 'open' });
 
         document.addEventListener("newData",( event =>{
-            this.render();
+            this.loadData();
         }));
 
         document.addEventListener("newUrl",( event =>{
@@ -17,12 +17,10 @@ class Table extends HTMLElement {
 
     connectedCallback() {
         this.loadData();
-        this.render();
     }
 
     attributeChangedCallback(){
         this.loadData();
-        this.render();
     }
 
     loadData() {
