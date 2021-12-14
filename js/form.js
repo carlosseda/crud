@@ -42,6 +42,7 @@ export let renderForm = () => {
 
                                 let errors = jsonError.data;  
                                 let errorsContainer = document.getElementById('crud__form-errors');      
+                                errorsContainer.classList.add('active');
 
                                 Object.keys(errors).forEach( (key) => {
                                     let errorMessage = document.createElement('li');
