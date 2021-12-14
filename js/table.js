@@ -65,7 +65,7 @@ class Table extends HTMLElement {
             if(headers.includes(key)){
                 let field = document.createElement('th');
                 field.textContent = key;
-                header.insertAdjacentElement('beforeend', field);
+                header.insertAdjacentHTML('beforeend', field);
             }
         });
 
