@@ -5,28 +5,22 @@ class Table extends HTMLElement {
         this.shadow = this.attachShadow({ mode: 'open' });
 
         document.addEventListener("newData",( event =>{
-            this.connectedCallback();
+            this.render();
+        }));
+
+        document.addEventListener("newUrl",( event =>{
+            this.setAttribute('url', event.detail);
         }));
     }
 
+    static get observedAttributes() { return ['url']; }
+
     connectedCallback() {
+        this.render();
+    }
 
-        let url = this.getAttribute('url');
-
-        if(url){
-
-            fetch(url, { 
-                headers: {
-                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
-                }
-            }) 
-            .then(response => response.json())
-            .then(json => {
-                this.data = json.data;
-                this.render();
-            })
-            .catch(error => console.log(error));
-        }
+    attributeChangedCallback(){
+        this.render();
     }
 
     render() {
@@ -54,17 +48,31 @@ class Table extends HTMLElement {
                 ${this.getTableData()}
             </tbody>
         </table>`;
+
+        let url = this.getAttribute('url');
+
+        if(url){
+
+            fetch(url, { 
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                }
+            }) 
+            .then(response => response.json())
+            .then(json => {
+                this.data = json.data;
+                this.render();
+            })
+            .catch(error => console.log(error));
+        }
     }
 
     getTableHeader() {
 
-        let headers = this.getAttribute('headers');
         let header = '';
 
         Object.entries(this.data[0]).forEach(([key, value]) => {
-            if(headers.includes(key)){
-                header += `<th>${key}</th>`;
-            }
+            header += `<th>${key}</th>`;
         });
 
         return `<tr>${header}</tr>`;
@@ -72,7 +80,6 @@ class Table extends HTMLElement {
 
     getTableData() {
 
-        let headers = this.getAttribute('headers');
         let data = '';
 
         this.data.forEach(element => {
@@ -80,9 +87,7 @@ class Table extends HTMLElement {
             data += `<tr>`;
 
             Object.entries(element).forEach(([key, value]) => {
-                if(headers.includes(key)){
-                    data += `<td>${value}</td>`;
-                }
+                data += `<td>${value}</td>`;
             });
 
             data += `</tr>`;
@@ -92,11 +97,4 @@ class Table extends HTMLElement {
     }           
 }
 
-const ProxyTable = new Proxy(Table, {
-    construct(...args) {
-      console.log('constructor', ...args);
-      return Reflect.construct(...args);
-    }
-});
-
-customElements.define('table-component', ProxyTable);
+customElements.define('table-component', Table);
