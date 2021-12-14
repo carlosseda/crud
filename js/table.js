@@ -59,17 +59,15 @@ class Table extends HTMLElement {
     getTableHeader() {
 
         let headers = this.getAttribute('headers');
-        let header = document.createElement('tr');
+        let header = '';
 
         Object.entries(this.data[0]).forEach(([key, value]) => {
             if(headers.includes(key)){
-                let field = document.createElement('th');
-                field.textContent = key;
-                header.insertAdjacentHTML('beforeend', field);
+                header += `<th>${key}</th>`;
             }
         });
 
-        return header;
+        return `<tr>${header}</tr>`;
     }
 
     getTableData() {
