@@ -11,7 +11,7 @@ class Menu extends HTMLElement {
     }
 
     connectedCallback() {
-        
+        this.loadData();
     }
 
     loadData() {
