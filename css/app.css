@@ -847,6 +847,10 @@ footer {
   width: 100%;
 }
 
+.crud__form-input input.error {
+  border-bottom: 0.1em solid #ff5100;
+}
+
 .crud__form-input input::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }

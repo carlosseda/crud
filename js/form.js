@@ -40,12 +40,14 @@ export let renderForm = () => {
 
                             error.json().then(jsonError => {
 
-                                let errors = jsonError.data;    
+                                let errors = jsonError.data;  
+                                let errorsContainer = document.getElementById('errors');      
 
                                 Object.keys(errors).forEach( (key) => {
                                     let errorMessage = document.createElement('li');
                                     errorMessage.textContent = errors[key];
-                                    console.log(errorMessage)
+                                    errorsContainer.insertAdjacentElement('beforeend',errorMessage);
+                                    document.querySelector(`[name=${key}]`).classList.add('error');
                                 })
                             })   
                         }
