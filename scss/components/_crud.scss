@@ -50,6 +50,14 @@
     width: 23%;
 }
 
+.crud__form-errors{
+    background-color:  hsl(19, 100%, 50%);;
+    
+    li{
+        color: hsl(0, 0%, 100%);
+    }
+}
+
 .crud__form-element{
     margin-bottom: 1em;
     width: 100%;
