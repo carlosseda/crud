@@ -37,6 +37,7 @@ class Table extends HTMLElement {
             td, th {
                 border: 1px solid hsl(0, 0%, 87%);
                 color: hsl(0, 0%, 100%);
+                font-family: 'Ubuntu';
                 padding: 8px;
                 text-align: left;
             }
