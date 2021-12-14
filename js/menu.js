@@ -36,7 +36,7 @@ class Menu extends HTMLElement {
 
     render() {
 
-        this.shadowRoot.innerHTML = 
+        this.shadow.innerHTML = 
         `
         <style>
             ul {   
