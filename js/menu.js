@@ -75,7 +75,7 @@ class Menu extends HTMLElement {
         menuItems.forEach(menuItem => {
 
             menuItem.addEventListener("click", () => {
-                console.log(menuItem.url);
+                console.log(menuItem.getAttribute("menu"));
             });
 
         });
