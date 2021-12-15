@@ -77,7 +77,11 @@ export let renderForm = () => {
             return response.json();
         })
         .then(json => {
-            console.log(json.data);
+            let data = json.data;
+
+            Object.entries(data).forEach( ([key,value]) => {
+                document.querySelector(`[name=${key}]`).value = value;
+            });
         })
         .catch(error => console.log(error));
     }));
