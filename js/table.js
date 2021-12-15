@@ -94,8 +94,8 @@ class Table extends HTMLElement {
                 data += `<td>${value}</td>`;
             });
 
-            data += `<td class="edit-button" data-id="${value.id}">Editar</td>`;
-            data += `<td class="remove-button" data-id="${value.id}">Eliminar</td>`;
+            data += `<td class="edit-button" data-id="${element.id}">Editar</td>`;
+            data += `<td class="remove-button" data-id="${element.id}">Eliminar</td>`;
             data += `</tr>`;
         });
 
