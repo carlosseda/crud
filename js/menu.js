@@ -78,6 +78,8 @@ class Menu extends HTMLElement {
 
                 event.preventDefault();
 
+                window.history.pushState('','', menuItem.getAttribute("href"));
+
                 document.dispatchEvent(new CustomEvent('newUrl', {
                     detail: {
                         url: menuItem.getAttribute("href"),
