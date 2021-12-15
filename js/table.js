@@ -140,6 +140,7 @@ class Table extends HTMLElement {
         });
 
         return data;
+
     }           
 }
 
