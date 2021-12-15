@@ -473,20 +473,20 @@ footer {
   opacity: 0.5;
 }
 
-.header__element {
+.header-element {
   width: max-content;
 }
 
-.header__element.logo svg {
+.header-element.logo svg {
   height: 3em;
   width: 3em;
 }
 
-.header__element.logo svg path {
+.header-element.logo svg path {
   fill: #ff5100;
 }
 
-.header__element.logo h1 {
+.header-element.logo h1 {
   margin-left: 1em;
   text-align: left;
 }
