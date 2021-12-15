@@ -4,6 +4,7 @@ class Table extends HTMLElement {
         super();
         this.shadow = this.attachShadow({ mode: 'open' });
         this.api = 'http://141.94.27.118:8080/api';
+        this.data = [];
 
         document.addEventListener("newData",( event =>{
             this.loadData();
@@ -11,6 +12,10 @@ class Table extends HTMLElement {
 
         document.addEventListener("newUrl",( event =>{
             this.setAttribute('url', this.api + event.detail.url);
+        }));
+
+        document.addEventListener("filterSearch",( event =>{
+            this.filter(event.detail.search);
         }));
     }
 
@@ -140,8 +145,24 @@ class Table extends HTMLElement {
         });
 
         return data;
+    }    
+    
+    filter(search) {
 
-    }           
+        let table = this.shadow.querySelector('table');
+        let rows = table.querySelectorAll('tbody tr');
+
+        rows.forEach(row => {
+
+            let text = row.innerText.toLowerCase();
+            
+            if(text.indexOf(search.toLowerCase()) > -1) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
 }
 
 customElements.define('table-component', Table);

@@ -1,17 +1,4 @@
 .header-element{
-    width: max-content;
-}
-
-.header-element.logo svg{
-    height: 3em;
-    width: 3em;
-}
-
-.header-element.logo svg path{
-    fill:hsl(19, 100%, 50%);
-}
-
-.header-element.logo h1{
-    margin-left: 1em;
-    text-align: left;
+    margin: auto 0;
+    padding: 0.2em 0;
 }

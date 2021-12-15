@@ -4,6 +4,7 @@ class Menu extends HTMLElement {
         super();
         this.shadow = this.attachShadow({ mode: 'open' });
         this.url="http://141.94.27.118:8080/api/display-menu/";
+        this.data = [];
     }
 
     connectedCallback() {
