@@ -75,7 +75,7 @@ class Table extends HTMLElement {
 
         let header = '';
 
-        Object.entries(this.data[0]).forEach(([key, value]) => {
+        Object.keys(this.data[0]).forEach( (key) => {
             header += `<th>${key}</th>`;
         });
 
@@ -90,10 +90,12 @@ class Table extends HTMLElement {
 
             data += `<tr>`;
 
-            Object.entries(element).forEach(([key, value]) => {
+            Object.values(element).forEach( (value) => {
                 data += `<td>${value}</td>`;
             });
 
+            data += `<td class="edit-button" data-id="${value.id}">Editar</td>`;
+            data += `<td class="remove-button" data-id="${value.id}">Eliminar</td>`;
             data += `</tr>`;
         });
 
