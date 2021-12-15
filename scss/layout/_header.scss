@@ -2,19 +2,16 @@
     width: max-content;
 }
 
-.header__element svg{
+.header__element.logo svg{
     height: 3em;
     width: 3em;
 }
 
-.header__element svg path{
+.header__element.logo svg path{
     fill:hsl(19, 100%, 50%);
 }
 
-.header__element{
+.header__element.logo h1{
     margin-left: 1em;
-}
-
-.header__element h1{
     text-align: left;
 }
