@@ -35,7 +35,11 @@ class Table extends HTMLElement {
                     'Authorization': 'Bearer ' + localStorage.getItem('token'),
                 }
             }) 
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) throw response;
+
+                return response.json();
+            })
             .then(json => {
                 this.data = json.data;
                 this.render();
@@ -84,23 +88,17 @@ class Table extends HTMLElement {
             </tbody>
         </table>`;      
         
-        let menuItems = this.shadow.querySelectorAll("a");
+        let editButtons = this.shadow.querySelectorAll(".edit-button");
 
-        menuItems.forEach(menuItem => {
+        editButtons.forEach(editButton => {
 
-            menuItem.addEventListener("click", (event) => {
+            editButton.addEventListener("click", (event) => {
 
-                event.preventDefault();
-
-                window.history.pushState('', menuItem.getAttribute("title"), menuItem.getAttribute("href"));
-
-                document.dispatchEvent(new CustomEvent('newUrl', {
+                document.dispatchEvent(new CustomEvent('showElement', {
                     detail: {
-                        url: menuItem.getAttribute("href"),
-                        title: menuItem.getAttribute("title"),
+                        url: this.getAttribute('url') + '/' + editButton.dataset.id,
                     }
                 }));
-
             });
 
         });

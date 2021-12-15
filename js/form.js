@@ -57,37 +57,28 @@ export let renderForm = () => {
                             console.log(error);
                         }
                     });
-
-                    // En caso de usar Axios
-                    
-                    // let request = await axios.post(url, json)
-                    // .then(response => {
-                    //     console.log(response);
-                    // })
-                    // .catch(error => {
-                        
-                    //     if(error.response.status == '400'){
-
-                    //         let errors = error.response.data.data;      
-                    //         let errorMessage = '';
-
-                    //         Object.keys(errors).forEach( (key) => {
-                    //             let errorMessage = document.createElement('li');
-                    //             errorMessage.textContent = errors[key];
-                    //             console.log(errorMessage)
-                    //         })
-
-                    //         console.log(errorMessage);
-                    //     }
-
-                    //     if(error.response.status == '500'){
-                    //         console.log(error);
-                    //     }
-                    // });
                 };
         
                 sendPostRequest();
             });
         });
     }
+
+    document.addEventListener("showElement",( event =>{
+
+        fetch(event.detail.url, { 
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token'),
+            }
+        }) 
+        .then(response => {
+            if (!response.ok) throw response;
+
+            return response.json();
+        })
+        .then(json => {
+            console.log(json.data);
+        })
+        .catch(error => console.log(error));
+    }));
 };
