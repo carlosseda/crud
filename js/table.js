@@ -60,6 +60,15 @@ class Table extends HTMLElement {
                 padding: 8px;
                 text-align: left;
             }
+
+            svg {
+                height: 1.5em;
+                width: 1.5em;
+            }
+
+            svg path {
+                fill: hsl(0, 0%, 100%);
+            }
         </style>
         <table>
             <thead>
@@ -68,7 +77,28 @@ class Table extends HTMLElement {
             <tbody>
                 ${this.getTableData()}
             </tbody>
-        </table>`;        
+        </table>`;      
+        
+        let menuItems = this.shadow.querySelectorAll("a");
+
+        menuItems.forEach(menuItem => {
+
+            menuItem.addEventListener("click", (event) => {
+
+                event.preventDefault();
+
+                window.history.pushState('', menuItem.getAttribute("title"), menuItem.getAttribute("href"));
+
+                document.dispatchEvent(new CustomEvent('newUrl', {
+                    detail: {
+                        url: menuItem.getAttribute("href"),
+                        title: menuItem.getAttribute("title"),
+                    }
+                }));
+
+            });
+
+        });
     }
 
     getTableHeader() {
@@ -78,6 +108,8 @@ class Table extends HTMLElement {
         Object.keys(this.data[0]).forEach( (key) => {
             header += `<th>${key}</th>`;
         });
+
+        header += `<th></th>`;
 
         return `<tr>${header}</tr>`;
     }
@@ -94,8 +126,13 @@ class Table extends HTMLElement {
                 data += `<td>${value}</td>`;
             });
 
-            data += `<td class="edit-button" data-id="${element.id}">Editar</td>`;
-            data += `<td class="remove-button" data-id="${element.id}">Eliminar</td>`;
+            data += 
+            `<td class="edit-button" data-id="${element.id}">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+                </svg>
+            </td>`;
+            
             data += `</tr>`;
         });
 
