@@ -3,13 +3,14 @@ class Table extends HTMLElement {
     constructor() {
         super();
         this.shadow = this.attachShadow({ mode: 'open' });
+        this.api = 'http://141.94.27.118:8080/api';
 
         document.addEventListener("newData",( event =>{
             this.loadData();
         }));
 
         document.addEventListener("newUrl",( event =>{
-            this.setAttribute('url', event.detail.url);
+            this.setAttribute('url', this.api + event.detail.url);
         }));
     }
 
