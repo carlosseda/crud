@@ -69,8 +69,17 @@ class Menu extends HTMLElement {
             }
         </style>
         <ul>${this.getChildren()}</ul>`;	
-    }
 
+        let menuItems = this.shadow.querySelectorAll("a");
+
+        menuItems.forEach(menuItem => {
+
+            menuItem.addEventListener("click", () => {
+                console.log(menuItem.url);
+            });
+
+        });
+    }
 
     getChildren() {
 
