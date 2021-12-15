@@ -9,7 +9,7 @@ class Table extends HTMLElement {
         }));
 
         document.addEventListener("newUrl",( event =>{
-            this.setAttribute('url', event.detail);
+            this.setAttribute('url', event.detail.url);
         }));
     }
 

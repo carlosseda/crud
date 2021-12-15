@@ -74,8 +74,17 @@ class Menu extends HTMLElement {
 
         menuItems.forEach(menuItem => {
 
-            menuItem.addEventListener("click", () => {
-                console.log(menuItem.getAttribute("url"));
+            menuItem.addEventListener("click", (event) => {
+
+                event.preventDefault();
+
+                document.dispatchEvent(new CustomEvent('newUrl', {
+                    detail: {
+                        url: menuItem.getAttribute("href"),
+                        title: menuItem.getAttribute("title"),
+                    }
+                }));
+
             });
 
         });
@@ -86,7 +95,7 @@ class Menu extends HTMLElement {
         let html = '';
 
         this.data.forEach(child => {
-            html += `<li><a href="#" url="${child.custom_url}">${child.link_name}</a></li>`;
+            html += `<li><a href="${child.custom_url}" title="${child.link_name}">${child.link_name}</a></li>`;
         });
 
         return html;
