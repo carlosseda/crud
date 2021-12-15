@@ -62,12 +62,17 @@ class Table extends HTMLElement {
             }
 
             svg {
+                cursor: pointer;
                 height: 1.5em;
                 width: 1.5em;
             }
 
             svg path {
                 fill: hsl(0, 0%, 100%);
+            }
+
+            svg:hover path {
+                fill: hsl(19, 100%, 50%);
             }
         </style>
         <table>
