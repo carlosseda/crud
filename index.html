@@ -22,12 +22,12 @@
     
     <body>
         <header>
-            <div class="header-element logo">
+            <div class="header-element">
                 <h2>AlizeBoats</h2>
             </div>
 
-            <div class="header-element subtitle">
-                <h2>Subtítulo</h2>
+            <div class="header-element">
+                <page-title-component></page-title-component>
             </div>
 
             <div class="header-element">
@@ -36,9 +36,10 @@
         </header>
 
         <main>
+            <alert-message-component></alert-message-component>
             <div class="main-element crud">
                 <div class="crud__table">
-                    <filtertable-component></filtertable-component>
+                    <table-filter-component></table-filter-component>
                     <table-component url="http://141.94.27.118:8080/api/users"></table-component>
                 </div>
 

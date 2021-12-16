@@ -33,6 +33,15 @@ export let renderForm = () => {
                     })
                     .then(json => {
                         document.dispatchEvent(new CustomEvent('newData'));
+
+                        if(json.message){
+                            document.dispatchEvent(new CustomEvent('message', {
+                                detail: {
+                                    message: json.message,
+                                    type: 'success'
+                                }
+                            }));
+                        }
                     })
                     .catch(error => {
                         

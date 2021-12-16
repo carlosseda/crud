@@ -9,7 +9,8 @@ body{
 
 header{
     background-color: hsl(207, 85%, 69%);
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     height: 10vh;
     justify-content: space-between;
     margin-bottom: 1em;

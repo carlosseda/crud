@@ -46,7 +46,20 @@ class Table extends HTMLElement {
                 return response.json();
             })
             .then(json => {
-                this.data = json.data;
+                this.data = json.data.data;
+
+                document.dispatchEvent(new CustomEvent('loadTable', {
+                    detail: {
+                        totalPage: json.data.total,
+                        currentPage: json.data.current_page,
+                        lastPage: json.data.last_page,
+                        firstPageUrl: json.data.first_page_url,
+                        previousPageUrl: json.data.prev_page_url,
+                        nextPageUrl: json.data.next_page_url,
+                        lastPageUrl: json.data.last_page_url,
+                    }
+                }));
+
                 this.render();
             })
             .catch(error => console.log(error));
@@ -62,12 +75,20 @@ class Table extends HTMLElement {
                 border-collapse: collapse;
                 width: 100%;
             }
+
             td, th {
                 border: 1px solid hsl(0, 0%, 87%);
                 color: hsl(0, 0%, 100%);
                 font-family: 'Ubuntu';
-                padding: 8px;
+                padding: 0.2em 0.5em; 
+            }
+
+            td{
                 text-align: left;
+            }
+
+            th{
+                text-align: center;
             }
 
             svg {

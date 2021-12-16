@@ -1,4 +1,4 @@
-class FilterTable extends HTMLElement {
+class TableFilter extends HTMLElement {
 
     constructor() {
         super();
@@ -50,4 +50,4 @@ class FilterTable extends HTMLElement {
     }      
 }
 
-customElements.define('filtertable-component', FilterTable);
+customElements.define('table-filter-component', TableFilter);
