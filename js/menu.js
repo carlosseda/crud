@@ -97,18 +97,19 @@ class Menu extends HTMLElement {
             }
 
             #menu{
-                background-color: white;
+                background-color: hsl(0, 0%, 100%);
                 height: 100vh;
                 left: 0;
                 position: fixed;
-                transition: top 0.2s;
-                top: -100%;
+                transition: opacity 0.4s;
+                top: 0;
+                opacity: 0;
                 width: 100%;
                 z-index: 1000;
             }
 
             #menu.active{
-                top: 0;
+                opacity: 1;
             }
 
             #menu ul {   

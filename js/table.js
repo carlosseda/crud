@@ -17,6 +17,10 @@ class Table extends HTMLElement {
         document.addEventListener("filterSearch",( event =>{
             this.filter(event.detail.search);
         }));
+
+        document.addEventListener("paginateAction",( event =>{
+            this.setAttribute('url', event.detail.url);
+        }));
     }
 
     static get observedAttributes() { return ['url']; }

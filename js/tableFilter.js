@@ -27,7 +27,7 @@ class TableFilter extends HTMLElement {
                 border-bottom: 1px solid hsl(0, 0%, 100%);
                 font-family: 'Ubuntu';
                 font-size: 1.2em;
-                padding: 0.6em;
+                padding: 0.4em 0.6em;
                 text-align: left;
                 width: 95%;
             }

@@ -2,18 +2,17 @@ body{
     background-color: hsl(226 63% 45%);
     display:flex; 
     flex-direction:column;    
-    margin: 1em auto;
+    margin: 0 auto;
     min-height: 100vh;
     width: 90%;
 }
 
 header{
-    background-color: hsl(207, 85%, 69%);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     height: 10vh;
     justify-content: space-between;
-    margin-bottom: 1em;
+    margin-bottom: .5em;
     padding: 0 1%;
     width: 98%;
 }

@@ -25,15 +25,7 @@ class TablePagination extends HTMLElement {
 
     static get observedAttributes() { 
         
-        return [
-            'loadTable',
-            'currentPage',
-            'lastPage',
-            'firstPageUrl',
-            'previousPageUrl',
-            'nextPageUrl',
-            'lastPageUrl'
-        ]; 
+        return ['totalPage','currentPage','lastPage']; 
     }
 
     connectedCallback() {
@@ -41,7 +33,9 @@ class TablePagination extends HTMLElement {
     }
 
     attributeChangedCallback(){
-        this.loadData();
+        this.shadow.querySelector('#total-page').textContent = this.getAttribute('totalPage');
+        this.shadow.querySelector('#current-page').textContent = this.getAttribute('currentPage');
+        this.shadow.querySelector('#last-page').textContent = this.getAttribute('lastPage');
     }
 
     render() {
@@ -49,50 +43,65 @@ class TablePagination extends HTMLElement {
         this.shadow.innerHTML = 
         `
         <style>
-            form {
+            .table-pagination .table-pagination-info{
+                color: hsl(0, 0%, 100%);
                 display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 1em;
+                font-family: 'Ubuntu', sans-serif;
+                justify-content: space-between;
             }
-
-            input {
-                border: none;
-                border-bottom: 1px solid hsl(0, 0%, 100%);
-                font-family: 'Ubuntu';
-                font-size: 1.2em;
-                padding: 0.6em;
-                text-align: left;
-                width: 95%;
+        
+            .table-pagination .table-pagination-buttons p{
+                color: hsl(0, 0%, 100%);
+                font-family: 'Ubuntu', sans-serif;
+                margin: 0;
             }
-            input:focus {
-                outline: none;
+        
+            .table-pagination .table-pagination-button{
+                cursor: pointer;
+                margin-right: 1em;
+            }
+        
+            .table-pagination .table-pagination-button:hover{
+                color: hsl(19, 100%, 50%);
+            }
+        
+            .table-pagination .table-pagination-button.inactive{
+                    color: hsl(0, 0%, 69%);
+                }
             }
         </style>
 
         <div class="table-pagination">
             <div class="table-pagination-info">
-                <div class="table-pagination-total"><p>${this.totalPage} registros</p></div>
-                <div class="table-pagination-pages"><p>Mostrando la página ${this.currentPage} de ${this.lastPage}</p></div>
+                <div class="table-pagination-total"><p><span id="total-page">${this.getAttribute('totalPage')} registros</p></div>
+                <div class="table-pagination-pages"><p>Mostrando la página <span id="current-page">${this.getAttribute('currentPage')}</span> de <span id="last-page">${this.getAttribute('lastPage')}</span></p></div>
             </div>
             <div class="table-pagination-buttons">
                 <p>
-                    <span class="table-pagination-button" id="first-page">Primera</span>
-                    <span class="table-pagination-button" id="previous-page">Anterior</span>
-                    <span class="table-pagination-button" id="next-page">Siguiente</span>
-                    <span class="table-pagination-button" id="last-page">Última</span>
+                    <span class="table-pagination-button" id="firstPageUrl">Primera</span>
+                    <span class="table-pagination-button" id="previousPageUrl">Anterior</span>
+                    <span class="table-pagination-button" id="nextPageUrl">Siguiente</span>
+                    <span class="table-pagination-button" id="lastPageUrl">Última</span>
                 </p>
             </div>
         </div>`;  
-        
-        this.shadow.querySelector('#search').addEventListener('keyup', (event) => {
-            
-            document.dispatchEvent(new CustomEvent('filterSearch', {
-                detail: {
-                    search: event.target.value,
+
+
+        let tablePaginationButtons = this.shadow.querySelectorAll(".table-pagination-button");
+
+        tablePaginationButtons.forEach(tablePaginationButton => {
+
+            tablePaginationButton.addEventListener("click", (event) => {
+
+                if(this.getAttribute(tablePaginationButton.id) != null){
+                    document.dispatchEvent(new CustomEvent('paginateAction', {
+                        detail: {
+                            url: this.getAttribute(tablePaginationButton.id),
+                        }
+                    }));
                 }
-            }));
+            });
+
         });
     }      
 }
