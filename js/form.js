@@ -3,18 +3,28 @@ import {getFingerprint} from './client.js';
 export let renderForm = () => {
 
     let forms = document.querySelectorAll(".admin-form");
-    let createButton = document.getElementById("crud__create-button");
+    let storeButton = document.getElementById("crud__store-button");
 
-    if(createButton){
+    if(storeButton){
 
-        createButton.addEventListener("click", (event) => {
+        storeButton.addEventListener("click", (event) => {
 
             event.preventDefault();
     
             forms.forEach(form => { 
 
-                let url = form.action;
                 let data = new FormData(form);
+                let url = '';
+                let method = '';
+
+                if(data.get('id')){
+                    method = 'PUT';
+                    url = form.action + '/' + data.get('id');
+                }else{
+                    method = 'POST';
+                    url = form.action;
+                }
+
                 data.append("fingerprint", getFingerprint());
     
                 let sendPostRequest = async () => {
@@ -23,7 +33,7 @@ export let renderForm = () => {
                         headers: {
                             'Authorization': 'Bearer ' + localStorage.getItem('token'),
                         },
-                        method: 'POST', 
+                        method: method, 
                         body: data
                     })
                     .then(response => {
