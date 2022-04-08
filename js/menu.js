@@ -3,7 +3,7 @@ class Menu extends HTMLElement {
     constructor() {
         super();
         this.shadow = this.attachShadow({ mode: 'open' });
-        this.url="http://141.94.27.118:8080/api/display-menu/";
+        this.url="http://192.168.5.235:8080/api/display-menu/";
         this.data = [];
     }
 

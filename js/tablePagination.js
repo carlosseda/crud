@@ -4,7 +4,7 @@ class TablePagination extends HTMLElement {
         super();
         this.shadow = this.attachShadow({ mode: 'open' });
 
-        this.totalPage = '';
+        this.total = '';
         this.currentPage = '';
         this.lastPage = '';
         this.firstPageUrl = '';
@@ -13,7 +13,7 @@ class TablePagination extends HTMLElement {
         this.lastPageUrl = '';
 
         document.addEventListener("loadTable",( event =>{
-            this.setAttribute('totalPage', event.detail.totalPage);
+            this.setAttribute('total', event.detail.total);
             this.setAttribute('currentPage', event.detail.currentPage);
             this.setAttribute('lastPage', event.detail.lastPage);
             this.setAttribute('firstPageUrl', event.detail.firstPageUrl);
@@ -73,7 +73,7 @@ class TablePagination extends HTMLElement {
 
         <div class="table-pagination">
             <div class="table-pagination-info">
-                <div class="table-pagination-total"><p><span id="total-page">${this.getAttribute('totalPage')} registros</p></div>
+                <div class="table-pagination-total"><p><span id="total-page">${this.getAttribute('total')} registros</p></div>
                 <div class="table-pagination-pages"><p>Mostrando la página <span id="current-page">${this.getAttribute('currentPage')}</span> de <span id="last-page">${this.getAttribute('lastPage')}</span></p></div>
             </div>
             <div class="table-pagination-buttons">

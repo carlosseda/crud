@@ -3,7 +3,7 @@ class Table extends HTMLElement {
     constructor() {
         super();
         this.shadow = this.attachShadow({ mode: 'open' });
-        this.api = 'http://141.94.27.118:8080/api';
+        this.api = 'http://192.168.5.235:8080/api';
         this.data = [];
 
         document.addEventListener("newData",( event =>{
@@ -54,7 +54,7 @@ class Table extends HTMLElement {
 
                 document.dispatchEvent(new CustomEvent('loadTable', {
                     detail: {
-                        totalPage: json.data.total,
+                        total: json.data.total,
                         currentPage: json.data.current_page,
                         lastPage: json.data.last_page,
                         firstPageUrl: json.data.first_page_url,
