@@ -3,7 +3,7 @@ class Table extends HTMLElement {
     constructor() {
         super();
         this.shadow = this.attachShadow({ mode: 'open' });
-        this.api = 'http://192.168.5.235:8080/api';
+        this.api = 'http://141.94.27.118:8080/api';
         this.data = [];
 
         document.addEventListener("newData",( event =>{
